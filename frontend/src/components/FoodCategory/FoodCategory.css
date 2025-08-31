@@ -1,0 +1,33 @@
+.food-category {
+    margin-top: 30px;
+}
+
+.food-category h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+}
+
+.food-category-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    .food-category-list {
+        grid-template-columns: repeat(2, 1fr); /* Ensure 2 boxes per row */
+        gap: 20px; /* Adjust gap for smaller screens */
+        row-gap: 30px; /* Adjust row gap for better spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .food-category-list {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 boxes per row on smaller screens */
+        gap: 15px; /* Further reduce gap for compact layout */
+        row-gap: 20px; /* Smaller row gap */
+    }
+}

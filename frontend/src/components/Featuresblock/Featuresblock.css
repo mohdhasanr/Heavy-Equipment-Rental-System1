@@ -1,0 +1,172 @@
+/* Wrapper styles */
+.features-wrapper {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Horizontal lines */
+  .line {
+    height: 2px;
+    background-color: #ccc;
+    margin: 10px 0;
+  }
+  
+  .top-line {
+    margin-bottom: 20px;
+  }
+  
+  .bottom-line {
+    margin-top: 20px;
+  }
+  
+  /* Grid container */
+  .features-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    justify-content: center;
+  }
+  
+  /* Feature box */
+  .feature-box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensures all boxes are the same height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Icon styling */
+  .feature-icon-wrapper {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #666;
+  }
+  
+  /* Heading styling */
+  .feature-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 40px; /* Adjusted for icon overlap */
+    margin-bottom: 10px;
+  }
+  
+  /* Text styling */
+  .feature-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Image styling */
+  .feature-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    /* Laptop screens: 4 boxes per row */
+    .features-container {
+      grid-template-columns: repeat(4, 1fr); /* 4 boxes per row */
+    }
+  
+    /* Make images bigger on laptop screens */
+    .feature-image {
+      max-width: 250px; /* Larger image on laptop screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Mobile screens: 2 boxes per row */
+    .features-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
+    }
+  
+    /* Adjust text size and padding for smaller screens */
+    .feature-box {
+      padding: 15px;
+    }
+  
+    .feature-heading {
+      font-size: 16px;
+    }
+  
+    .feature-text {
+      font-size: 12px;
+    }
+  
+    .feature-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+  
+    .feature-image {
+      max-width: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Very small screens: Reduce spacing further */
+    .features-container {
+      gap: 15px;
+    }
+  
+    .feature-box {
+      padding: 10px;
+    }
+  
+    .feature-heading {
+      font-size: 14px;
+    }
+  
+    .feature-text {
+      font-size: 10px;
+    }
+  
+    .feature-icon-wrapper {
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+  
+    .feature-image {
+      max-width: 100px;
+    }
+  }
+  
+  
+  
+  

@@ -1,0 +1,96 @@
+/* BestSellers.css */
+
+/* Wrapper for the entire slider */
+.food-category-slider-wrapper {
+    position: relative;
+}
+
+/* Carousel Button */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    z-index: 10;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect for Buttons */
+.carousel-button:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+/* Left Button Styling */
+.left {
+    left: 20px;
+}
+
+/* Right Button Styling */
+.right {
+    right: 20px;
+}
+
+/* Food Category List Slider */
+.food-category-list-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Food Category List Items */
+.food-category-list {
+    display: flex;
+    gap: 20px; /* Gap between items */
+    transition: transform 0.5s ease-in-out;
+    flex-wrap: nowrap; /* All items in one row */
+}
+
+/* Food Item - Flex configuration */
+.food-category-list .food-item {
+    flex: 0 0 auto; /* Prevent items from wrapping */
+    width: auto; /* Allow items to take the full space available */
+}
+
+/* For Mobile Screens (Up to 768px) */
+@media (max-width: 768px) {
+    .food-category-list {
+        display: flex;
+        gap: 0;
+        flex-wrap: nowrap; /* Keep items in one row */
+    }
+    
+    .food-category-list .food-item {
+        flex: 0 0 48%; /* Display 2 items per page on mobile */
+    }
+
+    /* Pagination Controls */
+    .pagination-dots {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+/* Pagination Dots */
+.pagination-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination-dots .dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+/* Active Dot Styling */
+.pagination-dots .dot.active {
+    background-color: #FFD700; /* Active dot in gold */
+}

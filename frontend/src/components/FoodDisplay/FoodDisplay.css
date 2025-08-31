@@ -1,0 +1,42 @@
+.food-display {
+    margin-top: 30px;
+}
+
+.food-display h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+}
+
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
+
+/* Responsive Design for Tablet Screens */
+@media (max-width: 768px) {
+    .food-display-list {
+        grid-template-columns: repeat(2, minmax(140px, 1fr)); /* Ensure 2 boxes per row with balanced size */
+        gap: 20px; /* Adjust gap for better spacing */
+        row-gap: 20px; /* Adjust row gap */
+        justify-content: center; /* Center the grid items */
+    }
+}
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 480px) {
+    .food-display-list {
+        grid-template-columns: repeat(2, minmax(120px, 1fr)); /* Adjust box size for smaller screens */
+        gap: 15px; /* Reduce gap for compact spacing */
+        row-gap: 15px; /* Smaller row gap for tight spacing */
+        padding: 0 10px; /* Add padding for better alignment */
+        justify-content: center; /* Center the grid items */
+    }
+
+    .food-display h2 {
+        font-size: 20px; /* Adjust font size for heading */
+        text-align: center; /* Center-align the heading */
+    }
+}

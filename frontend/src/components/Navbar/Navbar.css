@@ -1,0 +1,187 @@
+.navbar {
+    position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0; /* Aligns it to the top */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures it stays above other elements */
+    background-color: white; /* Prevents overlapping content visibility */
+    padding-top: 9px;
+    padding-bottom: 8px;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+.navbar .logo {
+    width: 150px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #49557E;
+    font-size: 18px;
+}
+
+.navbar-menu .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557E;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: #FF4C24;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
+
+.navbar-right button {
+    background: transparent;
+    font-size: 16px; /* Default size */
+    color: #49557E;
+    border: 1px solid #FF4C24;
+    padding: 10px 30px; /* Default padding */
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar-right button:hover {
+    background: #fff4f2;
+}
+
+.navbar-profile {
+    position: relative;
+}
+
+.navbar-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.navbar-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.navbar-profile-dropdown img {
+    width: 20px;
+}
+
+.navbar-profile-dropdown li:hover {
+    color: #FF4C24;
+}
+
+.navbar-profile:hover .navbar-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid white;
+    list-style: none;
+}
+
+.navbar-profile hr {
+    background-color: gray;
+    height: 1px;
+    border: none;
+}
+
+/* Adjustments for Body Content */
+body {
+    padding-top: 80px; /* Adjust this value based on navbar height */
+}
+
+/* Responsive Design */
+@media (max-width: 1050px) {
+    .navbar .logo {
+        width: 140px; /* Slightly smaller logo for medium screens */
+    }
+
+    .navbar-menu {
+        gap: 20px;
+        font-size: 17px;
+    }
+
+    .navbar-right {
+        gap: 30px;
+    }
+
+    .navbar-right img {
+        width: 22px;
+    }
+
+    .navbar-right button {
+        font-size: 14px; /* Smaller font size for medium screens */
+        padding: 8px 25px; /* Adjusted padding */
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar .logo {
+        width: 120px; /* Further reduce the logo size for smaller screens */
+    }
+
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        gap: 20px;
+    }
+
+    .navbar-right img {
+        width: 20px;
+    }
+
+    .navbar-right button {
+        font-size: 13px; /* Further reduce font size */
+        padding: 7px 20px; /* Compact padding for smaller screens */
+    }
+}
+
+@media (max-width: 750px) {
+    .navbar-menu {
+        display: none; /* Hides menu for smaller screens */
+    }
+
+    .navbar .logo {
+        width: 100px; /* Smallest logo size for mobile screens */
+    }
+
+    .navbar {
+        padding: 10px 0px; /* Adjust padding for smaller screens */
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .navbar-right button {
+        font-size: 12px; /* Smallest font size */
+        padding: 5px 15px; /* Compact padding */
+    }
+}

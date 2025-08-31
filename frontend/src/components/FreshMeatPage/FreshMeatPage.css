@@ -1,0 +1,129 @@
+/* Fresh Meat Page Container */
+.fresh-meat-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 8vw;
+    background-color: #f4f4f4;
+    gap: 40px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+/* Left Section - Video */
+.fresh-meat-left {
+    width: 45%; /* smaller than 50% to leave space for text */
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+}
+
+.equipment-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Right Section - Text */
+.fresh-meat-right {
+    flex: 1;
+    max-width: 50%; /* ensures text fits next to video */
+    color: #333;
+    padding: 0 20px;
+}
+
+.fresh-meat-right h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.fresh-meat-right h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ff5722;
+    margin-bottom: 10px;
+}
+
+.fresh-meat-right h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.fresh-meat-right p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.fresh-meat-right .shop-now-btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.fresh-meat-right .shop-now-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .fresh-meat-left {
+        width: 50%; /* slightly bigger for tablets */
+        min-height: 350px;
+    }
+    .fresh-meat-right {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 750px) {
+    .fresh-meat-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .fresh-meat-left,
+    .fresh-meat-right {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .fresh-meat-left {
+        min-height: 300px;
+    }
+
+    .fresh-meat-right h1 {
+        font-size: 1.8rem;
+    }
+
+    .fresh-meat-right h2 {
+        font-size: 1.4rem;
+    }
+
+    .fresh-meat-right h3 {
+        font-size: 1.2rem;
+    }
+
+    .fresh-meat-right p {
+        font-size: 0.95rem;
+    }
+
+    .fresh-meat-right .shop-now-btn {
+        padding: 8px 18px;
+    }
+}
