@@ -1,131 +1,96 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './PlaceOrder.css'
-import { StoreContext } from '../../Context/StoreContext'
-import { assets } from '../../assets/assets';
+import React, { useContext, useState, useEffect } from 'react';
+import './PlaceOrder.css';
+import { StoreContext } from '../../Context/StoreContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const PlaceOrder = () => {
-
-    const [payment, setPayment] = useState("cod")
-    const [data, setData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        street: "",
-        city: "",
-        state: "",
-        zipcode: "",
-        country: "",
-        phone: ""
-    })
-
-    const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems,currency,deliveryCharge } = useContext(StoreContext);
-
+    const { cartItems, token, url, setCartItems, currency } = useContext(StoreContext);
     const navigate = useNavigate();
 
-    const onChangeHandler = (event) => {
-        const name = event.target.name
-        const value = event.target.value
-        setData(data => ({ ...data, [name]: value }))
-    }
+    const [data, setData] = useState({
+        firstName: "", lastName: "", email: "", street: "", city: "", state: "", zipcode: "", country: "", phone: "", googleMap: ""
+    });
+
+    const onChangeHandler = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
     const placeOrder = async (e) => {
-        e.preventDefault()
-        let orderItems = [];
-        food_list.map(((item) => {
-            if (cartItems[item._id] > 0) {
-                let itemInfo = item;
-                itemInfo["quantity"] = cartItems[item._id];
-                orderItems.push(itemInfo)
-            }
-        }))
-        let orderData = {
-            address: data,
-            items: orderItems,
-            amount: getTotalCartAmount() + deliveryCharge,
-        }
-        if (payment === "stripe") {
-            let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
-            if (response.data.success) {
-                const { session_url } = response.data;
-                window.location.replace(session_url);
-            }
-            else {
-                toast.error("Something Went Wrong")
-            }
-        }
-        else{
-            let response = await axios.post(url + "/api/order/placecod", orderData, { headers: { token } });
-            if (response.data.success) {
-                navigate("/myorders")
-                toast.success(response.data.message)
-                setCartItems({});
-            }
-            else {
-                toast.error("Something Went Wrong")
-            }
+        e.preventDefault();
+
+        if (!token) {
+            toast.error("Sign in first");
+            return navigate('/cart');
         }
 
-    }
+        if (Object.keys(cartItems).length === 0) {
+            toast.error("Cart is empty");
+            return navigate('/cart');
+        }
+
+        const orderItems = Object.values(cartItems).map(item => ({ ...item }));
+
+        // totalAmount is already including labour cost in totalPrice
+        const totalAmount = orderItems.reduce((acc, item) => acc + item.totalPrice, 0);
+
+        const orderData = {
+            address: data,
+            items: orderItems,
+            amount: totalAmount
+        };
+
+        try {
+            const response = await axios.post(url + "/api/order/placecod", orderData, { headers: { token } });
+            if (response.data.success) {
+                toast.success(response.data.message);
+                setCartItems({});
+                navigate("/myorders");
+            } else {
+                toast.error("Something went wrong");
+            }
+        } catch (error) {
+            console.error(error);
+            toast.error("Something went wrong");
+        }
+    };
 
     useEffect(() => {
         if (!token) {
-            toast.error("to place an order sign in first")
-            navigate('/cart')
+            toast.error("Sign in first");
+            navigate('/cart');
+        } else if (Object.keys(cartItems).length === 0) {
+            navigate('/cart');
         }
-        else if (getTotalCartAmount() === 0) {
-            navigate('/cart')
-        }
-    }, [token])
+    }, [token, cartItems]);
+
+    const totalAmount = Object.values(cartItems).reduce((acc, item) => acc + item.totalPrice, 0);
 
     return (
         <form onSubmit={placeOrder} className='place-order'>
             <div className="place-order-left">
                 <p className='title'>Delivery Information</p>
-                <div className="multi-field">
-                    <input type="text" name='firstName' onChange={onChangeHandler} value={data.firstName} placeholder='First name' required />
-                    <input type="text" name='lastName' onChange={onChangeHandler} value={data.lastName} placeholder='Last name' required />
-                </div>
-                <input type="email" name='email' onChange={onChangeHandler} value={data.email} placeholder='Email address' required />
-                <input type="text" name='street' onChange={onChangeHandler} value={data.street} placeholder='Street' required />
-                <div className="multi-field">
-                    <input type="text" name='city' onChange={onChangeHandler} value={data.city} placeholder='City' required />
-                    <input type="text" name='state' onChange={onChangeHandler} value={data.state} placeholder='State' required />
-                </div>
-                <div className="multi-field">
-                    <input type="text" name='zipcode' onChange={onChangeHandler} value={data.zipcode} placeholder='Zip code' required />
-                    <input type="text" name='country' onChange={onChangeHandler} value={data.country} placeholder='Country' required />
-                </div>
-                <input type="text" name='phone' onChange={onChangeHandler} value={data.phone} placeholder='Phone' required />
+                {Object.keys(data).map((key) => (
+                    <input
+                        key={key}
+                        type={key === "email" ? "email" : "text"}
+                        name={key}
+                        placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
+                        value={data[key]}
+                        onChange={onChangeHandler}
+                        required={key !== "googleMap"}
+                    />
+                ))}
             </div>
+
             <div className="place-order-right">
                 <div className="cart-total">
-                    <h2>Cart Totals</h2>
-                    <div>
-                        <div className="cart-total-details"><p>Subtotal</p><p>{currency}{getTotalCartAmount()}</p></div>
-                        <hr />
-                        <div className="cart-total-details"><p>Delivery Fee</p><p>{currency}{getTotalCartAmount() === 0 ? 0 : deliveryCharge}</p></div>
-                        <hr />
-                        <div className="cart-total-details"><b>Total</b><b>{currency}{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + deliveryCharge}</b></div>
-                    </div>
+                    <h2>Cart Total</h2>
+                    <p>Total Amount: {currency}{totalAmount}</p>
                 </div>
-                <div className="payment">
-                    <h2>Payment Method</h2>
-                    <div onClick={() => setPayment("cod")} className="payment-option">
-                        <img src={payment === "cod" ? assets.checked : assets.un_checked} alt="" />
-                        <p>COD ( Cash on delivery )</p>
-                    </div>
-                    <div onClick={() => setPayment("stripe")} className="payment-option">
-                        <img src={payment === "stripe" ? assets.checked : assets.un_checked} alt="" />
-                        <p>Stripe ( Credit / Debit )</p>
-                    </div>
-                </div>
-                <button className='place-order-submit' type='submit'>{payment==="cod"?"Place Order":"Proceed To Payment"}</button>
+                <button type='submit'>Pay When Vehicle Arrives</button>
             </div>
         </form>
-    )
-}
+    );
+};
 
-export default PlaceOrder
+export default PlaceOrder;

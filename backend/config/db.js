@@ -8,6 +8,7 @@
 
 import mongoose from "mongoose";
 
+
 // MongoDB connection
 export const connectDB = async () => {
     try {
