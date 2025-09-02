@@ -1,10 +1,10 @@
 .navbar {
     position: fixed; /* Keeps the navbar fixed at the top */
-    top: 0; /* Aligns it to the top */
+    top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensures it stays above other elements */
-    background-color: white; /* Prevents overlapping content visibility */
+    z-index: 1000;
+    background-color: #fff8e1; /* Light yellow background */
     padding-top: 9px;
     padding-bottom: 8px;
     padding-left: 10%;
@@ -12,32 +12,38 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12); /* Softer shadow */
+    border-bottom: 2px solid #ffe082; /* Subtle bottom border */
 }
 
+/* Logo */
 .navbar .logo {
     width: 150px;
 }
 
+/* Menu */
 .navbar-menu {
     display: flex;
     list-style: none;
     gap: 20px;
-    color: #49557E;
+    color: #5d4037; /* Dark brown for contrast */
     font-size: 18px;
+    font-weight: 500;
 }
 
 .navbar-menu .active {
     padding-bottom: 2px;
-    border-bottom: 2px solid #49557E;
+    border-bottom: 2px solid #ff9800; /* Orange accent */
 }
 
+/* Right section */
 .navbar-right {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
+/* Search dot */
 .navbar-search-icon {
     position: relative;
 }
@@ -46,27 +52,29 @@
     position: absolute;
     min-width: 10px;
     min-height: 10px;
-    background-color: #FF4C24;
+    background-color: #ff5722; /* Deep orange */
     border-radius: 5px;
     top: -8px;
     right: -8px;
 }
 
+/* Button */
 .navbar-right button {
-    background: transparent;
-    font-size: 16px; /* Default size */
-    color: #49557E;
-    border: 1px solid #FF4C24;
-    padding: 10px 30px; /* Default padding */
+    background: #fffde7; /* Slight yellow shade */
+    font-size: 16px;
+    color: #5d4037;
+    border: 1px solid #ff9800;
+    padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .navbar-right button:hover {
-    background: #fff4f2;
+    background: #ffecb3; /* Deeper yellow on hover */
 }
 
+/* Profile dropdown */
 .navbar-profile {
     position: relative;
 }
@@ -83,6 +91,7 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    color: #5d4037;
 }
 
 .navbar-profile-dropdown img {
@@ -90,98 +99,88 @@
 }
 
 .navbar-profile-dropdown li:hover {
-    color: #FF4C24;
+    color: #ff9800;
 }
 
 .navbar-profile:hover .navbar-profile-dropdown {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #fff2ef;
+    background-color: #fffde7;
     padding: 12px 25px;
-    border-radius: 4px;
-    border: 1px solid tomato;
+    border-radius: 8px;
+    border: 1px solid #ffcc80;
     outline: 2px solid white;
     list-style: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .navbar-profile hr {
-    background-color: gray;
+    background-color: #ccc;
     height: 1px;
     border: none;
 }
 
-/* Adjustments for Body Content */
+/* Body adjustment */
 body {
-    padding-top: 80px; /* Adjust this value based on navbar height */
+    padding-top: 80px; /* Matches navbar height */
 }
 
 /* Responsive Design */
 @media (max-width: 1050px) {
     .navbar .logo {
-        width: 140px; /* Slightly smaller logo for medium screens */
+        width: 140px;
     }
-
     .navbar-menu {
         gap: 20px;
         font-size: 17px;
     }
-
     .navbar-right {
         gap: 30px;
     }
-
     .navbar-right img {
         width: 22px;
     }
-
     .navbar-right button {
-        font-size: 14px; /* Smaller font size for medium screens */
-        padding: 8px 25px; /* Adjusted padding */
+        font-size: 14px;
+        padding: 8px 25px;
     }
 }
 
 @media (max-width: 900px) {
     .navbar .logo {
-        width: 120px; /* Further reduce the logo size for smaller screens */
+        width: 120px;
     }
-
     .navbar-menu {
         gap: 15px;
         font-size: 16px;
     }
-
     .navbar-right {
         gap: 20px;
     }
-
     .navbar-right img {
         width: 20px;
     }
-
     .navbar-right button {
-        font-size: 13px; /* Further reduce font size */
-        padding: 7px 20px; /* Compact padding for smaller screens */
+        font-size: 13px;
+        padding: 7px 20px;
     }
 }
 
 @media (max-width: 750px) {
     .navbar-menu {
-        display: none; /* Hides menu for smaller screens */
+        display: none;
     }
-
     .navbar .logo {
-        width: 100px; /* Smallest logo size for mobile screens */
+        width: 100px;
     }
-
     .navbar {
-        padding: 10px 0px; /* Adjust padding for smaller screens */
+        padding: 10px 0px;
         padding-left: 10%;
         padding-right: 10%;
     }
-
     .navbar-right button {
-        font-size: 12px; /* Smallest font size */
-        padding: 5px 15px; /* Compact padding */
+        font-size: 12px;
+        padding: 5px 15px;
     }
 }

@@ -2,32 +2,38 @@ import React from "react";
 import "./Featuresblock.css";
 import { FaTruck, FaTools, FaCogs, FaHardHat } from "react-icons/fa";
 import { assets } from "../../assets/assets";
+import image01 from "../../assets/image01.jpg"
+import image02 from "../../assets/image02.jpeg"
+import image03 from "../../assets/image03.jpeg"
+import image04 from "../../assets/image04.jpeg"
+
+
 
 const FeaturesBlock = () => {
   const features = [
     {
       heading: "Wide Equipment Range",
       text: "Choose from a variety of heavy machinery including excavators, loaders, and cranes for all your project needs.",
-      icon: <FaTruck />, // Icon for equipment/machinery
-      img: assets.feature1, 
+      icon: <FaTruck />,
+      img: image01,
     },
     {
       heading: "On-Site Delivery",
       text: "Get the equipment delivered directly to your construction site, saving time and effort.",
-      icon: <FaTools />, // Icon for delivery/service
-      img: assets.feature2,
+      icon: <FaTools />,
+      img: image02,
     },
     {
       heading: "Certified & Safe",
       text: "All equipment is certified, maintained, and tested for safety and reliability.",
-      icon: <FaCogs />, // Icon for certified/maintenance
-      img: assets.feature3,
+      icon: <FaCogs />,
+      img: image03,
     },
     {
       heading: "Flexible Rentals",
       text: "Rent machinery on short-term or long-term plans according to your project requirements.",
-      icon: <FaHardHat />, // Icon for safety/flexibility
-      img: assets.feature4,
+      icon: <FaHardHat />,
+      img: image04,
     },
   ];
 
@@ -40,7 +46,11 @@ const FeaturesBlock = () => {
             <div className="feature-icon-wrapper">{feature.icon}</div>
             <h3 className="feature-heading">{feature.heading}</h3>
             <p className="feature-text">{feature.text}</p>
-            <img className="feature-image" src={feature.img} alt={feature.heading} />
+            <img
+              className="feature-image"
+              src={feature.img}
+              alt={feature.heading}
+            />
           </div>
         ))}
       </div>

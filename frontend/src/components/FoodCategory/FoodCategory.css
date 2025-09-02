@@ -1,33 +1,105 @@
 .food-category {
-    margin-top: 30px;
+    margin: 80px 0; /* equal spacing */
+    text-align: center;
 }
 
 .food-category h2 {
     font-size: max(2vw, 24px);
     font-weight: 600;
+    color: #ff9800; /* strong yellow-orange heading */
 }
 
+/* Grid layout */
 .food-category-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    margin-top: 30px;
     gap: 30px;
     row-gap: 50px;
+    margin-top: 30px;
 }
 
-/* Responsive Design for Mobile Screens */
+/* Each card block */
+.food-category-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff8e1; /* light yellow background */
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-height: 280px; /* keeps equal card height */
+}
+
+/* Hover / active effect */
+.food-category-list-item:hover {
+    transform: scale(1.05);
+    border-color: #ffb300; /* darker yellow border */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Image styling */
+.food-category-list-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover; /* ensures equal look */
+    border-radius: 8px;
+    background-color: #fffde7;
+    padding: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Text inside card */
+.food-category-list-item p {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+    word-wrap: break-word;
+    flex-grow: 1;
+}
+
+/* Tablet responsive */
 @media (max-width: 768px) {
     .food-category-list {
-        grid-template-columns: repeat(2, 1fr); /* Ensure 2 boxes per row */
-        gap: 20px; /* Adjust gap for smaller screens */
-        row-gap: 30px; /* Adjust row gap for better spacing */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        row-gap: 30px;
+    }
+
+    .food-category-list-item {
+        min-height: 240px;
+    }
+
+    .food-category-list-item img {
+        width: 100px;
+        height: 100px;
     }
 }
 
+/* Mobile responsive */
 @media (max-width: 480px) {
     .food-category-list {
-        grid-template-columns: repeat(2, 1fr); /* Keep 2 boxes per row on smaller screens */
-        gap: 15px; /* Further reduce gap for compact layout */
-        row-gap: 20px; /* Smaller row gap */
+        grid-template-columns: repeat(1, 1fr); /* ✅ 1 item per row */
+        gap: 15px;
+        row-gap: 20px;
+    }
+
+    .food-category-list-item {
+        min-height: 200px;
+    }
+
+    .food-category-list-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .food-category-list-item p {
+        font-size: 14px;
+        margin-top: 10px;
     }
 }

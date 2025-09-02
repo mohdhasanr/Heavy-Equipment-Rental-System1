@@ -15,7 +15,7 @@ const List = () => {
     if (response.data.success) {
       setList(response.data.data);
     } else {
-      toast.error("Error fetching food list");
+      toast.error("Error fetching Vehicle list");
     }
   };
 
@@ -28,7 +28,7 @@ const List = () => {
     if (response.data.success) {
       toast.success(response.data.message);
     } else {
-      toast.error("Error removing food item");
+      toast.error("Error removing Vehicle item");
     }
   };
 
@@ -61,7 +61,7 @@ const List = () => {
 
   return (
     <div className='list add flex-col'>
-      <p>All Foods List</p>
+      <p>All Vehicle List</p>
       <div className='list-table'>
         <div className="list-table-format title">
           <b>Image</b>

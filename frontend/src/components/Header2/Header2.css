@@ -1,60 +1,63 @@
 /* Main container for header */
 .header2-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns on larger screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns on large screens */
     gap: 20px;
     padding: 20px;
-    background-color: #f5f5f5;
-  }
-  
-  /* Styling for each box */
-  .header2-box {
-    background-color: #ffffff;
-    padding: 15px;
+    background: #fffdf2; /* Very light yellow background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Styling for each box */
+.header2-box {
+    background: linear-gradient(135deg, #fff7b0, #fffde0); /* Lighter gradient */
+    padding: 20px;
     text-align: center;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* Hover effect for boxes */
-  .header2-box:hover {
+    border: 1px solid #fff9b3; /* Lighter border */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for boxes */
+.header2-box:hover {
     transform: scale(1.05);
-    border-color: #ff6347;
-  }
-  
-  /* Text styling inside the box */
-  .header2-box h3 {
-    font-size: 1rem;  /* Slightly smaller text size for better mobile fit */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    border-color: #ffe066;
+}
+
+/* Text styling inside the box */
+.header2-box h3 {
+    font-size: 1rem;
     color: #333;
     margin: 0;
-  }
-  
-  /* Responsive design for medium screens */
-  @media (max-width: 768px) {
+    font-weight: 600;
+}
+
+/* Responsive design for medium screens */
+@media (max-width: 768px) {
     .header2-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
     }
     .header2-box {
-      padding: 12px;  /* Smaller padding for smaller screens */
+        padding: 15px;
     }
     .header2-box h3 {
-      font-size: 0.9rem; /* Slightly smaller text on medium screens */
+        font-size: 0.95rem;
     }
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 480px) {
+}
+
+/* Responsive design for small screens */
+@media (max-width: 480px) {
     .header2-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 boxes per row on smaller screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 boxes in a line on mobile */
     }
     .header2-box {
-      padding: 10px; /* Even smaller padding on very small screens */
+        padding: 12px;
     }
     .header2-box h3 {
-      font-size: 0.85rem; /* Smaller text for very small screens */
+        font-size: 0.85rem;
     }
-  }
-  
-  
+}
+

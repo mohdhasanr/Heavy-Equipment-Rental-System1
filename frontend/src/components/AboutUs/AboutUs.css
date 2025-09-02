@@ -1,173 +1,146 @@
 .about-us-container {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   color: #333;
-  background-color: #f4f4f4;
+  background-color: #fff8e1; /* Light yellow background to match Footer */
 }
 
+/* Hero Header */
 .about-us-header {
+  position: relative;
+  height: 360px;
+  background: url('https://images.unsplash.com/photo-1608022747547-fd81f5d6a1e2') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-us-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 12px;
   text-align: center;
-  padding: 50px 20px;
-  background-color: #FF5733; /* Warm butcher-themed color */
-  color: #fff;
 }
 
 .about-us-header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 40px;
+  color: #FFD700; /* Bright yellow accent */
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
 .about-us-header p {
   font-size: 18px;
+  color: #fff;
 }
 
+/* Sections */
 section {
-  padding: 40px 20px;
-  margin: 20px auto;
+  padding: 50px 25px;
+  margin: 30px auto;
   max-width: 1100px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 h2 {
   font-size: 28px;
-  color: #FF5733;
+  color: #FFD700;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  border-left: 6px solid #FFD700;
+  padding-left: 12px;
 }
 
 p {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 15px;
 }
 
-.about-us-story,
-.about-us-mission {
-  margin-bottom: 40px;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.about-us-team {
-  margin-bottom: 40px;
-}
-
-
-
-.team-member-content {
-  padding: 20px;
-}
-
-.team-member-content h3 {
-  font-size: 24px;
-  color: #FF5733;
-  margin-bottom: 10px;
-}
-
-.team-member-content p {
+ul li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 30px;
+  position: relative;
   color: #555;
-  margin-bottom: 10px;
 }
 
+ul li::before {
+  content: "✔";
+  color: #FFD700;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Contact Section */
 .about-us-contact {
   text-align: center;
-  background-color: #f9f9f9;
-  padding: 40px 20px;
-  border-radius: 8px;
+  background: #fff8e1;
+  padding: 50px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .contact-btn {
-  background-color: #FF5733;
-  color: #fff;
-  padding: 15px 30px;
+  background-color: #FFD700;
+  color: #000;
+  padding: 14px 32px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
   display: inline-block;
   margin-top: 20px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .contact-btn:hover {
-  background-color: #c44527;
+  background-color: #e6c200;
 }
 
-.about-us-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: #fff;
-  font-size: 14px;
-}
-.team-member {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-  overflow: hidden;
-  padding: 20px;
-}
-
-.team-member img {
-  width: 35%; /* Smaller image for a more balanced design */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover;
-  border-radius: 10px; /* Smooth edges */
-  margin-right: 20px; /* Space between image and text */
-}
-
-.team-member-content {
-  flex: 1; /* Allow text to take up the remaining space */
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 1024px) {
-  .team-member img {
-    width: 40%; /* Slightly larger for smaller screens */
+  .about-us-header h1 {
+    font-size: 32px;
   }
-}
-
-@media (max-width: 768px) {
-  .team-member {
-    flex-direction: column; /* Stack content vertically */
-    text-align: center;
+  .about-us-header p {
+    font-size: 16px;
   }
-
-  .team-member img {
-    width: 70%; /* Larger image for mobile */
-    margin: 0 0 15px 0; /* Center image and add spacing below */
-  }
-
-  .team-member-content {
-    padding: 0;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .team-member {
-    flex-direction: column;
-  }
-
-  .team-member img {
-    width: 100%;
-    height: auto;
-  }
-
-  .team-member-content {
-    padding: 20px;
-    text-align: center;
-  }
-
   section {
-    padding: 20px 10px;
+    padding: 40px 20px;
   }
+}
 
+@media (max-width: 768px) {
   .about-us-header h1 {
     font-size: 28px;
   }
-
   .about-us-header p {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  section {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-header h1 {
+    font-size: 24px;
+  }
+  .about-us-header p {
+    font-size: 13px;
+  }
+  section {
+    padding: 20px 10px;
   }
 }

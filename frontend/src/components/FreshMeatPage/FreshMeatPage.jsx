@@ -6,8 +6,14 @@ const FreshMeatPage = () => {
   return (
     <div className="fresh-meat-container">
       <div className="fresh-meat-left">
-        <video src={assets.equipment} className="equipment-video" autoPlay loop muted playsInline
-  />
+        <video 
+          src={assets.equipment} 
+          className="equipment-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
       </div>
       <div className="fresh-meat-right">
         <h1>Reliable Heavy Equipment Rentals</h1>
@@ -20,9 +26,8 @@ const FreshMeatPage = () => {
           Make your construction projects efficient and cost-effective by choosing EarthShifter – your trusted partner for heavy equipment rental.
         </p>
         <a href="/explore-menu">
-  <button className="shop-now-btn">Rent Now</button>
-</a>
-
+          <button className="shop-now-btn">Rent Now</button>
+        </a>
       </div>
     </div>
   );
